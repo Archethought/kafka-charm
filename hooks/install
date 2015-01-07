@@ -1,0 +1,17 @@
+#!/bin/bash
+set -ex
+URL="http://mirror.cc.columbia.edu/pub/software/apache/kafka/0.8.1.1/kafka_2.9.2-0.8.1.1.tgz"
+FILE="kafka_2.9.2-0.8.1.1.tgz"
+
+apt-get install -y openjdk-7-jre-headless
+
+mkdir -p /opt/kafka
+#wget $URL
+#md5sum -c $CHARM_DIR/files/checksum
+tar -xzv -C /opt/kafka --strip-components=1 -f $CHARM_DIR/files/$FILE
+#rm $FILE
+
+cp $CHARM_DIR/files/kafka.upstart /etc/init/kafka.conf
+ln -s /opt/kafka/bin $CHARM_DIR/bin
+
+

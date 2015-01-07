@@ -1,0 +1,20 @@
+#!/usr/bin/python
+import subprocess
+import sys
+
+from utils import get_zookeeper_servers, update_kafka_config, svc_is_running
+
+port = subprocess.check_output(['relation-get', 'port'])
+if not port:
+    sys.exit(0)
+
+zks = get_zookeeper_servers()
+
+if not zks:
+    sys.exit(0)
+
+update_kafka_config('/opt/kafka/config/consumer.properties', zks)
+if update_kafka_config('/opt/kafka/config/server.properties', zks):
+    if not svc_is_running('kafka'):
+        subprocess.check_output(['open-port', '9092'])
+    subprocess.check_output(['service', 'kafka', 'restart'])
