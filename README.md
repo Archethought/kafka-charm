@@ -24,16 +24,16 @@ We can list all the cli commands available to us via
 
     $ juju run --unit=kafka/0 "ls bin"
 
- kafka-console-consumer.sh
- kafka-console-producer.sh
- kafka-consumer-perf-test.sh
- kafka-preferred-replica-election.sh
- kafka-producer-perf-test.sh
- kafka-reassign-partitions.sh
- kafka-replay-log-producer.sh
- kafka-simple-consumer-perf-test.sh
- kafka-simple-consumer-shell.sh
- kafka-topics.sh
+    kafka-console-consumer.sh
+    kafka-console-producer.sh
+    kafka-consumer-perf-test.sh
+    kafka-preferred-replica-election.sh
+    kafka-producer-perf-test.sh
+    kafka-reassign-partitions.sh
+    kafka-replay-log-producer.sh
+    kafka-simple-consumer-perf-test.sh
+    kafka-simple-consumer-shell.sh
+    kafka-topics.sh
 
 We can create a topic with
 
